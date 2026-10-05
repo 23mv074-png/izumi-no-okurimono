@@ -1,0 +1,893 @@
+/* ========================================
+   泉からの贈りもの
+   TOPページ
+======================================== */
+
+
+/* ========================================
+   01. 基本設定
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background-color: #eef1ee;
+
+  color: #285f87;
+
+  font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro",
+    serif;
+}
+
+
+/* ========================================
+   02. サイト全体
+======================================== */
+
+main {
+  position: relative;
+
+  width: 100%;
+  max-width: 480px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background-color: #fffdf5;
+
+  /*
+    元背景画像
+    1080 × 11126
+  */
+  aspect-ratio: 1080 / 11126;
+}
+
+
+/* ========================================
+   03. 縦長背景
+======================================== */
+
+.long-background {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   04. セクション共通
+======================================== */
+
+.page-section {
+  position: absolute;
+
+  left: 0;
+
+  z-index: 2;
+
+  width: 100%;
+}
+
+.section-content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding-right: 28px;
+  padding-left: 28px;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   05. 文字共通
+======================================== */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+
+  font-size: clamp(27px, 7.5vw, 36px);
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.english-title {
+  margin-top: 5px;
+  margin-bottom: 0;
+
+  font-size: 12px;
+
+  letter-spacing: 0.35em;
+}
+
+
+/* ========================================
+   06. 共通アイコン
+======================================== */
+
+.section-icon {
+  display: block;
+
+  width: 76px;
+  height: 76px;
+
+  margin: 0 auto 14px;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   07. TOP
+======================================== */
+
+#top {
+  top: 0;
+
+  height: 20.93%;
+}
+
+.top-text {
+  position: absolute;
+
+  top: 34%;
+  left: 50%;
+
+  width: 88%;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+}
+
+.top-text h1 {
+  margin: 0;
+
+  font-size: clamp(38px, 11vw, 54px);
+
+  font-weight: 400;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.08em;
+}
+
+.top-text h1 span {
+  display: block;
+}
+
+
+/* 完成イメージに近い柔らかな線 */
+
+.title-decoration {
+  position: relative;
+
+  width: 105px;
+  height: 16px;
+
+  margin: 13px auto 13px;
+
+  border-bottom:
+    1.5px solid
+    rgba(40, 95, 135, 0.9);
+
+  border-radius: 50%;
+}
+
+.top-text p {
+  margin: 0;
+
+  font-size: clamp(13px, 3.8vw, 17px);
+
+  line-height: 2;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* ========================================
+   08. ABOUT
+======================================== */
+
+#about {
+  top: 20.93%;
+
+  height: 20.93%;
+}
+
+.about-content {
+  padding-top: 27%;
+}
+
+.about-text {
+  margin-top: 30px;
+
+  font-size: clamp(13px, 3.7vw, 16px);
+
+  line-height: 2.2;
+
+  letter-spacing: 0.08em;
+}
+
+.about-text p {
+  margin-bottom: 28px;
+}
+
+
+/* ========================================
+   09. STORY
+======================================== */
+
+#story {
+  top: 41.86%;
+
+  height: 29.07%;
+}
+
+.story-content {
+  padding-top: 0;
+}
+
+
+/*
+  「絵本を読む / STORY」だけを下へ移動。
+  プロローグ部分には影響しない。
+*/
+
+.story-heading {
+  position: absolute;
+
+  top: 21%;
+  left: 0;
+
+  z-index: 3;
+
+  width: 100%;
+
+  padding-right: 28px;
+  padding-left: 28px;
+}
+
+
+/* ========================================
+   10. STORY プロローグ
+======================================== */
+
+.story-description {
+  position: absolute;
+
+  left: 7%;
+  bottom: 6.5%;
+
+  z-index: 3;
+
+  width: 86%;
+
+  text-align: left;
+}
+
+
+/*
+  背景の岩・川を完全に白いカードで
+  隠すのではなく、水彩紙のように
+  中央だけ淡く明るくする。
+*/
+
+.story-text-area {
+  position: relative;
+
+  padding:
+    25px
+    22px
+    22px;
+
+  border-radius: 38px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 253, 245, 0.94) 0%,
+      rgba(255, 253, 245, 0.88) 45%,
+      rgba(255, 253, 245, 0.60) 70%,
+      rgba(255, 253, 245, 0) 100%
+    );
+}
+
+.story-description h3 {
+  margin-bottom: 15px;
+
+  color: #285f87;
+
+  font-size: clamp(21px, 5.7vw, 27px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+}
+
+.story-description p {
+  margin-bottom: 0;
+
+  color: #3f4d55;
+
+  font-size: clamp(13px, 3.7vw, 16px);
+
+  line-height: 2.05;
+
+  letter-spacing: 0.055em;
+
+  text-shadow:
+    0 1px 6px rgba(255, 253, 245, 0.95);
+}
+
+
+/* ========================================
+   11. 共通メインボタン
+======================================== */
+
+.main-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 62px;
+
+  margin-top: 22px;
+
+  padding: 14px 58px 14px 28px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(46, 126, 180, 0.88);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: clamp(14px, 4vw, 18px);
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+
+  box-shadow:
+    0 5px 14px
+    rgba(32, 84, 120, 0.12);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.button-text {
+  display: block;
+}
+
+.button-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 30px;
+
+  transform: translateY(-50%);
+
+  font-size: 22px;
+}
+
+.main-button:hover {
+  opacity: 0.86;
+
+  transform: translateY(-2px);
+}
+
+.main-button:active {
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   12. STAMP RALLY
+======================================== */
+
+#stamp {
+  top: 70.93%;
+
+  height: 29.07%;
+}
+
+
+/*
+  スタンプラリーは見出しだけではなく、
+  説明・スタンプ・ボタン・下部ナビまで
+  全体をまとめて下へ移動。
+*/
+
+.stamp-content {
+  padding-top: 30%;
+}
+
+
+/* ========================================
+   13. STAMP 見出し
+======================================== */
+
+.stamp-heading {
+  position: relative;
+
+  z-index: 3;
+}
+
+.heading-decoration {
+  width: 105px;
+  height: 14px;
+
+  margin: 9px auto 0;
+
+  border-bottom:
+    1.5px solid
+    rgba(40, 95, 135, 0.85);
+
+  border-radius: 50%;
+}
+
+
+/* ========================================
+   14. STAMP 説明
+======================================== */
+
+.stamp-intro {
+  margin-top: 24px;
+  margin-bottom: 0;
+
+  font-size: clamp(13px, 3.7vw, 16px);
+
+  line-height: 2;
+
+  letter-spacing: 0.08em;
+
+  text-shadow:
+    0 1px 6px
+    rgba(255, 253, 245, 0.95);
+}
+
+
+/* ========================================
+   15. スタンプ表示エリア
+======================================== */
+
+/*
+  背景そのものを消さず、
+  スタンプの後ろだけ淡くする。
+*/
+
+.stamp-area {
+  width: 100%;
+
+  margin-top: 24px;
+
+  padding:
+    16px
+    5px
+    18px;
+
+  border-radius: 45%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 253, 245, 0.92) 0%,
+      rgba(255, 253, 245, 0.76) 53%,
+      rgba(255, 253, 245, 0.25) 78%,
+      rgba(255, 253, 245, 0) 100%
+    );
+}
+
+
+/* ========================================
+   16. スタンプ5個
+======================================== */
+
+.stamp-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, 1fr);
+
+  column-gap: 8px;
+  row-gap: 12px;
+
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto;
+}
+
+.stamp-item {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.stamp-item img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 3px 5px
+      rgba(39, 83, 112, 0.08)
+    );
+}
+
+.stamp-item:hover {
+  transform: translateY(-3px);
+}
+
+
+/* 上段3個 */
+
+.stamp-item:nth-child(1) {
+  grid-column: 1 / 3;
+}
+
+.stamp-item:nth-child(2) {
+  grid-column: 3 / 5;
+}
+
+.stamp-item:nth-child(3) {
+  grid-column: 5 / 7;
+}
+
+
+/* 下段2個 */
+
+.stamp-item:nth-child(4) {
+  grid-column: 2 / 4;
+}
+
+.stamp-item:nth-child(5) {
+  grid-column: 4 / 6;
+}
+
+
+/* ========================================
+   17. スタンプボタン
+======================================== */
+
+.stamp-button {
+  width: 94%;
+
+  margin:
+    22px
+    auto
+    0;
+}
+
+
+/* ========================================
+   18. 下部ナビ上の装飾
+======================================== */
+
+.nav-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  width: 100%;
+
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.nav-decoration span {
+  display: block;
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    rgba(40, 95, 135, 0.42);
+}
+
+.leaf-mark {
+  color:
+    rgba(40, 95, 135, 0.75);
+
+  font-size: 22px;
+
+  line-height: 1;
+}
+
+
+/* ========================================
+   19. 下部ナビ
+======================================== */
+
+.sub-navigation {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  width: 100%;
+}
+
+.sub-navigation a {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 7px;
+
+  min-height: 125px;
+
+  padding:
+    5px
+    10px;
+
+  color: #285f87;
+
+  text-decoration: none;
+
+  font-size:
+    clamp(13px, 3.8vw, 16px);
+
+  line-height: 1.55;
+
+  letter-spacing: 0.05em;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+.sub-navigation a:hover {
+  opacity: 0.72;
+}
+
+.sub-navigation a + a {
+  border-left:
+    1px solid
+    rgba(40, 95, 135, 0.35);
+}
+
+.nav-icon {
+  display: block;
+
+  width: 60px;
+  height: 60px;
+
+  object-fit: contain;
+}
+
+.nav-label {
+  display: block;
+}
+
+.sub-navigation small {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* ========================================
+   20. スマホ
+======================================== */
+
+@media (max-width: 599px) {
+
+  body {
+    background-color: #fffdf5;
+  }
+
+  main {
+    width: 100%;
+    max-width: none;
+
+    box-shadow: none;
+  }
+
+  .section-content {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .story-heading {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .section-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+}
+
+
+/* ========================================
+   21. PC
+======================================== */
+
+@media (min-width: 600px) {
+
+  main {
+    box-shadow:
+      0 0 30px
+      rgba(0, 0, 0, 0.08);
+  }
+
+}
+
+/* ========================================
+   22. ハンバーガーメニュー
+======================================== */
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: max(20px, calc((100vw - 480px) / 2 + 20px));
+  z-index: 1001;
+  width: 46px;
+  height: 46px;
+  padding: 10px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 245, 0.78);
+  box-shadow: 0 3px 12px rgba(40, 95, 135, 0.10);
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  margin: 5px auto;
+  background: #285f87;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(44, 69, 79, 0.16);
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.menu-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu-panel {
+  width: min(100%, 480px);
+  min-height: 100%;
+  padding: 105px 42px 40px;
+  background: rgba(255, 253, 245, 0.94);
+  transform: translateY(-12px);
+  transition: transform 0.25s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.menu-overlay.is-open .menu-panel {
+  transform: translateY(0);
+}
+
+.menu-panel a {
+  display: block;
+  padding: 18px 6px;
+  border-bottom: 1px solid rgba(40, 95, 135, 0.20);
+  color: #285f87;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  letter-spacing: 0.10em;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.stamp-progress-top {
+  margin: 14px 0 0;
+  color: #285f87;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+}
+
+
+/* TOPページ：取得済みスタンプ */
+.stamp-item {
+  opacity: 0.35;
+}
+
+.stamp-item.is-collected {
+  opacity: 1;
+}

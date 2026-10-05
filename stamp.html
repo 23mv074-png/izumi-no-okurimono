@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スタンプラリー｜泉からの贈りもの</title>
+  <link rel="stylesheet" href="CSS/stamp.css">
+</head>
+<body class="stamp-page">
+
+  <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="menu-overlay" aria-hidden="true">
+    <nav class="menu-panel" aria-label="メインメニュー">
+      <a href="index.html#top">TOP</a>
+      <a href="index.html#about">この企画について</a>
+      <a href="story.html">絵本を読む</a>
+      <a href="stamp.html">スタンプラリー</a>
+      <a href="map.html">会場マップ</a>
+    </nav>
+  </div>
+
+  <main class="stamp-page-main">
+    <header class="stamp-page-header">
+      <p class="small-en">STAMP RALLY</p>
+      <h1>スタンプラリー</h1>
+      <div class="water-line"></div>
+      <p class="lead">
+        2つの建物を巡りながら、<br>
+        5つのスタンプを集めよう。
+      </p>
+    </header>
+
+    <section class="progress-section">
+      <p class="progress-label">あつめたスタンプ</p>
+      <p class="progress-number"><span id="stampCount">0</span><small> / 5</small></p>
+      <p id="acquireMessage" class="acquire-message" aria-live="polite"></p>
+    </section>
+
+    <section class="stamp-collection" aria-label="スタンプ取得状況">
+      <div class="collection-item" data-stamp="1">
+        <div class="stamp-circle"><img src="images/stamp1.png" alt="スタンプ1"></div>
+        <span class="stamp-status">まだ</span>
+      </div>
+      <div class="collection-item" data-stamp="2">
+        <div class="stamp-circle"><img src="images/stamp2.png" alt="スタンプ2"></div>
+        <span class="stamp-status">まだ</span>
+      </div>
+      <div class="collection-item" data-stamp="3">
+        <div class="stamp-circle"><img src="images/stamp3.png" alt="スタンプ3"></div>
+        <span class="stamp-status">まだ</span>
+      </div>
+      <div class="collection-item" data-stamp="4">
+        <div class="stamp-circle"><img src="images/stamp4.png" alt="スタンプ4"></div>
+        <span class="stamp-status">まだ</span>
+      </div>
+      <div class="collection-item" data-stamp="5">
+        <div class="stamp-circle"><img src="images/stamp5.png" alt="スタンプ5"></div>
+        <span class="stamp-status">まだ</span>
+      </div>
+    </section>
+
+    <section class="epilogue-section">
+      <p>5つすべて集めると、<br>物語のつづきが開きます。</p>
+      <a id="epilogueButton" class="epilogue-button is-locked" href="#" aria-disabled="true">
+        <span class="lock-mark">○</span>
+        <span class="epilogue-label">あと5つ集めよう</span>
+        <span>→</span>
+      </a>
+    </section>
+
+    <section class="qr-guide">
+      <h2>スタンプの集め方</h2>
+      <p>
+        会場にある5つのQRコードを読み込むと、<br>
+        その場所のスタンプを取得できます。
+      </p>
+      <p class="sample-url">
+        QR用URL例：<br>
+        stamp.html?stamp=1
+      </p>
+    </section>
+
+    <nav class="bottom-links">
+      <a href="index.html">TOPへ戻る</a>
+      <a href="map.html">会場マップを見る</a>
+    </nav>
+
+    <button id="resetStamps" class="reset-button" type="button">テスト用：スタンプをリセット</button>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
