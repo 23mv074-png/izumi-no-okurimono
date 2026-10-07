@@ -105,53 +105,6 @@
   </main>
 
 
-  <script>
-  (function () {
-    const STORAGE_KEY = 'izumiCollectedStamps';
-    function readStamps() {
-      try {
-        const primary = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        if (Array.isArray(primary)) return primary.map(Number).filter(n => n >= 1 && n <= 5);
-      } catch(e) {}
-      // Compatibility with earlier builds that may have stored each stamp separately.
-      const found = [];
-      for (let i=1;i<=5;i++) {
-        if (localStorage.getItem('stamp'+i) === 'true' || localStorage.getItem('stamp_'+i) === 'true') found.push(i);
-      }
-      return found;
-    }
-    function saveStamps(stamps) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([...new Set(stamps)].sort()));
-    }
-    function render() {
-      const stamps = readStamps();
-      document.querySelectorAll('.collection-item[data-stamp]').forEach(item => {
-        const n = Number(item.dataset.stamp);
-        const got = stamps.includes(n);
-        item.classList.toggle('is-collected', got);
-        const status = item.querySelector('.stamp-status');
-        if (status) status.textContent = got ? 'GET!' : 'まだ';
-      });
-      const count = document.getElementById('stampCount');
-      if (count) count.textContent = stamps.length;
-      const label = document.querySelector('.epilogue-label');
-      const btn = document.getElementById('epilogueButton');
-      if (label) label.textContent = stamps.length === 5 ? '物語のつづきを読む' : `あと${5-stamps.length}つ集めよう`;
-      if (btn) {
-        const unlocked = stamps.length === 5;
-        btn.classList.toggle('is-locked', !unlocked);
-        btn.setAttribute('aria-disabled', unlocked ? 'false' : 'true');
-      }
-    }
-    const param = Number(new URLSearchParams(location.search).get('stamp'));
-    if (param >= 1 && param <= 5) {
-      const stamps = readStamps();
-      if (!stamps.includes(param)) { stamps.push(param); saveStamps(stamps); }
-    }
-    document.addEventListener('DOMContentLoaded', render);
-    window.addEventListener('storage', render);
-  })();
-  </script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=23"></script>
 </body>
 </html>
