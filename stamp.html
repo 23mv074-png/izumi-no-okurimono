@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>スタンプラリー｜泉からの贈りもの</title>
   <link rel="stylesheet" href="CSS/stamp.css">
+
+  <style>
+    .stamp-circle { position: relative; overflow: hidden; }
+    .collection-item:not(.is-collected) .stamp-circle img { display: none; }
+    .collection-item:not(.is-collected) .stamp-circle::before {
+      content: "?\A Find it."; white-space: pre; position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      border-radius: 50%; background: #dfe3e3; color: #7d8b91;
+      font-family: inherit; font-size: 14px; line-height: 1.7; letter-spacing: .04em;
+    }
+    .collection-item:not(.is-collected) .stamp-status { visibility: hidden; }
+    .collection-item.is-collected .stamp-circle img { display: block; opacity: 1 !important; filter: none !important; }
+  </style>
 </head>
 <body class="stamp-page">
 
@@ -91,6 +104,54 @@
     <button id="resetStamps" class="reset-button" type="button">テスト用：スタンプをリセット</button>
   </main>
 
+
+  <script>
+  (function () {
+    const STORAGE_KEY = 'izumiCollectedStamps';
+    function readStamps() {
+      try {
+        const primary = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        if (Array.isArray(primary)) return primary.map(Number).filter(n => n >= 1 && n <= 5);
+      } catch(e) {}
+      // Compatibility with earlier builds that may have stored each stamp separately.
+      const found = [];
+      for (let i=1;i<=5;i++) {
+        if (localStorage.getItem('stamp'+i) === 'true' || localStorage.getItem('stamp_'+i) === 'true') found.push(i);
+      }
+      return found;
+    }
+    function saveStamps(stamps) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...new Set(stamps)].sort()));
+    }
+    function render() {
+      const stamps = readStamps();
+      document.querySelectorAll('.collection-item[data-stamp]').forEach(item => {
+        const n = Number(item.dataset.stamp);
+        const got = stamps.includes(n);
+        item.classList.toggle('is-collected', got);
+        const status = item.querySelector('.stamp-status');
+        if (status) status.textContent = got ? 'GET!' : 'まだ';
+      });
+      const count = document.getElementById('stampCount');
+      if (count) count.textContent = stamps.length;
+      const label = document.querySelector('.epilogue-label');
+      const btn = document.getElementById('epilogueButton');
+      if (label) label.textContent = stamps.length === 5 ? '物語のつづきを読む' : `あと${5-stamps.length}つ集めよう`;
+      if (btn) {
+        const unlocked = stamps.length === 5;
+        btn.classList.toggle('is-locked', !unlocked);
+        btn.setAttribute('aria-disabled', unlocked ? 'false' : 'true');
+      }
+    }
+    const param = Number(new URLSearchParams(location.search).get('stamp'));
+    if (param >= 1 && param <= 5) {
+      const stamps = readStamps();
+      if (!stamps.includes(param)) { stamps.push(param); saveStamps(stamps); }
+    }
+    document.addEventListener('DOMContentLoaded', render);
+    window.addEventListener('storage', render);
+  })();
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
