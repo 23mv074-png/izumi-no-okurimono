@@ -133,7 +133,7 @@ a{color:inherit}
 /* ABOUT */
 .about-section{min-height:1120px;padding-top:58px;overflow:visible}
 .about-leaf{
-  top:-235px;
+  top:-215px;
   left:-18%;
   right:auto;
   width:92%;
@@ -143,7 +143,7 @@ a{color:inherit}
   pointer-events:none;
 }
 .about-leaf-right{
-  top:-185px;
+  top:-205px;
   right:-24%;
   left:auto;
   width:78%;
