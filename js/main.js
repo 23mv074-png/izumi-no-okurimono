@@ -76,7 +76,7 @@
   completionContinue?.addEventListener('click', () => {
     document.getElementById('completionReveal').hidden = true;
     document.body.classList.remove('reveal-open');
-    document.querySelector('.stamp-collection')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.querySelector('.epilogue-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
   // HOMEとstamp.htmlの両方に対応
