@@ -23,6 +23,7 @@
   let newlyAcquired = null;
   let scannedStamp = null;
   let alreadyCollected = false;
+  let justCompleted = false;
 
   if (params.has('stamp') && Number.isInteger(stampFromQr) && stampFromQr >= 1 && stampFromQr <= TOTAL) {
     scannedStamp = stampFromQr;
@@ -32,6 +33,7 @@
       collected.sort((a, b) => a - b);
       saveStamps(collected);
       newlyAcquired = stampFromQr;
+      justCompleted = collected.length === TOTAL;
     }
 
     params.delete('stamp');
@@ -56,10 +58,26 @@
     button.addEventListener('click', () => {
       reveal.hidden = true;
       document.body.classList.remove('reveal-open');
-      document.querySelector('.stamp-collection')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (justCompleted) {
+        const completion = document.getElementById('completionReveal');
+        if (completion) {
+          completion.hidden = false;
+          document.body.classList.add('reveal-open');
+          document.getElementById('completionContinue')?.focus({ preventScroll: true });
+        }
+      } else {
+        document.querySelector('.stamp-collection')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
     button.focus({ preventScroll: true });
   }
+
+  const completionContinue = document.getElementById('completionContinue');
+  completionContinue?.addEventListener('click', () => {
+    document.getElementById('completionReveal').hidden = true;
+    document.body.classList.remove('reveal-open');
+    document.querySelector('.stamp-collection')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 
   // HOMEとstamp.htmlの両方に対応
   document.querySelectorAll('.stamp-item[data-stamp], .collection-item[data-stamp]').forEach(item => {
