@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>泉からの贈りもの</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/style.css?v=opening2" />
   </head>
 
   <body>
+    <div class="opening-screen" id="opening-screen" aria-label="泉からの贈りもの オープニング">
+      <div class="opening-art">
+        <img src="images/sky1.png" class="opening-sky" alt="" />
+        <img src="images/leaf1.png" class="opening-leaf" alt="" />
+        <img src="images/huurinn.png" class="opening-windchime" alt="" />
+        <div class="opening-title"><h2>泉からの<br />贈りもの</h2><span class="opening-rule"></span><p>絵本からはじまる、<br />歩いてめぐる ちいさな物語。</p></div>
+        <div class="opening-landscape"><img src="images/mountain1.png" alt="" /><img src="images/grass.png" alt="" /></div>
+      </div>
+      <button type="button" class="opening-skip" id="opening-skip">SKIP →</button>
+    </div>
+    <header class="site-header" id="site-header"><a href="index.html" class="header-brand">泉からの贈りもの<small>IZUMI NO OKURIMONO</small></a></header>
     <button
       class="menu-toggle"
       type="button"
@@ -21,29 +32,17 @@
       <nav class="menu-panel" aria-label="メインメニュー">
         <a href="#top">TOP</a>
         <a href="#about">この企画について</a>
-        <a href="#story">絵本を読む</a>
-        <a href="#stamp">スタンプラリー</a>
+        <a href="story.html">絵本を読む</a>
+        <a href="stamp.html">スタンプラリー</a>
         <a href="map.html">会場マップ</a>
       </nav>
     </div>
 
     <main class="site">
-      <!-- TOP -->
-      <section id="top" class="page-section top-section">
-        <img src="images/sky1.png" class="decor top-sky" alt="" />
-        <img src="images/leaf1.png" class="decor top-leaf-left" alt="" />
-        <img src="images/huurinn.png" class="decor top-huurin" alt="" />
-
-        <div class="top-text">
-          <h1><span>泉からの</span><span>贈りもの</span></h1>
-          <div class="water-line"></div>
-          <p>絵本からはじまる、<br />歩いてめぐる ちいさな物語。</p>
-        </div>
-
-        <div class="top-landscape">
-          <img src="images/mountain1.png" class="top-mountain" alt="" />
-          <img src="images/grass.png" class="top-grass" alt="" />
-        </div>
+      <!-- TOP: ポスタービジュアルをそのまま表示 -->
+      <section id="top" class="page-section poster-top-section">
+        <img src="images/top-keyvisual.png" class="poster-top-image" alt="泉のほとりで優とリュウが水面を覗き込む。あの泉には、忘れられない夏がある。" />
+        <div class="poster-scroll" aria-hidden="true">SCROLL <span>↓</span></div>
       </section>
 
       <!-- ABOUT -->
@@ -193,6 +192,6 @@
       </footer>
     </main>
 
-    <script src="js/main.js?v=25"></script>
+    <script src="js/main.js?v=opening2"></script>
   </body>
 </html>

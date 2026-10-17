@@ -205,3 +205,16 @@
     });
   }
 })();
+
+// オープニング：同じタブでの初回訪問のみ
+(() => {
+  const opening = document.getElementById('opening-screen');
+  if (!opening) return;
+  const finish = () => { opening.classList.add('is-finished'); document.body.classList.remove('opening-active'); };
+  let played = false;
+  try { played = sessionStorage.getItem('izumi-opening-played') === '1'; sessionStorage.setItem('izumi-opening-played','1'); } catch (_) {}
+  if (played || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
+  document.body.classList.add('opening-active');
+  const timer = setTimeout(finish, 4250);
+  document.getElementById('opening-skip')?.addEventListener('click', () => { clearTimeout(timer); finish(); });
+})();
