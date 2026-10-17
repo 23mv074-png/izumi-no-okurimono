@@ -382,3 +382,54 @@ body.menu-open{overflow:hidden}
 .stamp-grid .stamp-item::after { top:68%; }
 .stamp-button { margin-top:20px; }
 @media (max-width:390px) { .stamp-grid { height:450px; } }
+
+/* Restored ABOUT experience guide */
+.experience{padding:28px 24px 72px}
+.experience h3{margin-bottom:12px}
+.experience-lead{font-size:13px;line-height:1.95;margin:0 0 28px}
+.experience-steps{display:flex;flex-direction:column;align-items:center}
+.experience-step{display:flex;align-items:center;gap:15px;width:100%;padding:14px 12px;text-align:left;text-decoration:none;background:rgba(255,253,245,.63);border:1px solid rgba(65,113,132,.13);border-radius:13px}
+.experience-step img,.experience-symbol{width:76px;flex:0 0 76px;object-fit:contain}
+.experience-symbol{font-size:52px;text-align:center;color:#83a8a0}
+.experience-step span:not(.experience-symbol){display:flex;flex-direction:column;gap:5px}
+.experience-step small{font-size:10px;letter-spacing:.13em;color:#7297a0}
+.experience-step strong{font-size:15px;font-weight:500;line-height:1.6}
+.experience-step em{font-size:12px;font-style:normal;line-height:1.85;color:#557b8d}
+.experience-arrow{font-size:20px;line-height:1.7;color:#8aabb0}
+.experience-gifts{margin-top:42px}
+.experience-gifts h4{font-size:18px;font-weight:400;letter-spacing:.06em;margin:0 0 17px}
+.experience-gift{padding:16px 18px;margin:0 0 12px;background:rgba(244,247,239,.7);border-radius:12px;border:1px solid rgba(65,113,132,.12)}
+.experience-gift strong{font-size:14px;font-weight:500}
+.experience-gift p{font-size:12px;line-height:1.95;margin:8px 0 0}
+@media(max-width:380px){.about-section{min-height:0}.experience{padding-left:17px;padding-right:17px}.experience-step img,.experience-symbol{width:62px;flex-basis:62px}}
+
+
+/* 2026-10-18: stronger visual hierarchy for the restored 4-step guide */
+.experience h3{
+  font-size:clamp(23px,6vw,29px);
+  font-weight:700;
+  letter-spacing:.08em;
+  line-height:1.5;
+  color:#356a80;
+  text-align:center;
+  margin:0 0 17px;
+  text-shadow:0 1px 0 rgba(255,255,255,.75);
+}
+.experience-lead{color:#476c78;text-align:center;margin-bottom:29px}
+.experience-step{
+  background:rgba(247,250,245,.91);
+  border:2px solid rgba(80,143,161,.55);
+  box-shadow:0 3px 11px rgba(59,109,124,.09);
+  padding:16px 13px;
+}
+.experience-step small{font-weight:700;color:#477f95}
+.experience-step strong{font-weight:700;color:#355d6d;font-size:16px}
+.experience-step em{color:#486d7d}
+.experience-arrow{color:#5b93a5;font-weight:700}
+.experience-gifts h4{font-size:21px;font-weight:700;color:#356a80;text-align:center;margin-bottom:19px}
+.experience-gift{
+  background:rgba(242,248,244,.92);
+  border:2px solid rgba(80,143,161,.5);
+  box-shadow:0 3px 10px rgba(59,109,124,.07);
+}
+.experience-gift strong{font-weight:700;color:#355d6d;font-size:15px}

@@ -76,7 +76,7 @@
   completionContinue?.addEventListener('click', () => {
     document.getElementById('completionReveal').hidden = true;
     document.body.classList.remove('reveal-open');
-    document.querySelector('.epilogue-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.location.href = 'reward.html';
   });
 
   // HOMEとstamp.htmlの両方に対応
@@ -158,8 +158,8 @@
     if (remaining === 0) {
       epilogueButton.classList.remove('is-locked');
       epilogueButton.setAttribute('aria-disabled', 'false');
-      epilogueButton.href = 'epilogue.html';
-      if (label) label.textContent = '物語のつづきを読む';
+      epilogueButton.href = 'reward.html';
+      if (label) label.textContent = 'ごほうびを受け取る';
     } else {
       epilogueButton.classList.add('is-locked');
       epilogueButton.setAttribute('aria-disabled', 'true');
@@ -174,6 +174,7 @@
   if (resetButton) {
     resetButton.addEventListener('click', () => {
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem('izumi-no-okurimono-reward-v1');
       window.location.reload();
     });
   }
