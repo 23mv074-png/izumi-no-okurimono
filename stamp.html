@@ -91,6 +91,16 @@
   </main>
 
 
-  <script src="js/main.js?v=24"></script>
+  <div id="memoryReveal" class="memory-reveal" role="dialog" aria-modal="true" aria-labelledby="revealTitle" hidden>
+    <div class="reveal-panel">
+      <p class="reveal-eyebrow">A SUMMER MEMORY</p>
+      <div class="reveal-sparkle" aria-hidden="true">✧</div>
+      <h2 id="revealTitle">思い出をひとつ見つけたよ</h2>
+      <div class="reveal-picture"><img id="revealImage" src="" alt="獲得した思い出のイラスト"></div>
+      <p id="revealProgress" class="reveal-progress"></p>
+      <button id="revealContinue" class="reveal-continue" type="button">スタンプ台紙を見る <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+  <script src="js/main.js?v=25"></script>
 </body>
 </html>

@@ -21,8 +21,12 @@
   const stampFromQr = Number(params.get('stamp'));
   let collected = readStamps();
   let newlyAcquired = null;
+  let scannedStamp = null;
+  let alreadyCollected = false;
 
-  if (Number.isInteger(stampFromQr) && stampFromQr >= 1 && stampFromQr <= TOTAL) {
+  if (params.has('stamp') && Number.isInteger(stampFromQr) && stampFromQr >= 1 && stampFromQr <= TOTAL) {
+    scannedStamp = stampFromQr;
+    alreadyCollected = collected.includes(stampFromQr);
     if (!collected.includes(stampFromQr)) {
       collected.push(stampFromQr);
       collected.sort((a, b) => a - b);
@@ -35,6 +39,26 @@
     const cleanUrl =
       window.location.pathname + (query ? `?${query}` : '') + window.location.hash;
     history.replaceState(null, '', cleanUrl);
+  }
+
+  // QR読み込み直後は、台紙より先に獲得演出を表示する。
+  const reveal = document.getElementById('memoryReveal');
+  if (reveal && scannedStamp !== null) {
+    const title = document.getElementById('revealTitle');
+    const img = document.getElementById('revealImage');
+    const progress = document.getElementById('revealProgress');
+    const button = document.getElementById('revealContinue');
+    title.textContent = alreadyCollected ? 'この思い出はもう見つけたよ' : '思い出をひとつ見つけたよ';
+    img.src = `images/memory${scannedStamp}.jpg`;
+    progress.textContent = `${collected.length} / ${TOTAL} の思い出を集めたよ`;
+    reveal.hidden = false;
+    document.body.classList.add('reveal-open');
+    button.addEventListener('click', () => {
+      reveal.hidden = true;
+      document.body.classList.remove('reveal-open');
+      document.querySelector('.stamp-collection')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    button.focus({ preventScroll: true });
   }
 
   // HOMEとstamp.htmlの両方に対応
