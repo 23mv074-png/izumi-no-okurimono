@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>スタンプラリー｜泉からの贈りもの</title>
   <link rel="stylesheet" href="CSS/stamp.css">
-
-  <style>
-    .stamp-circle { position: relative; overflow: hidden; }
-    .collection-item:not(.is-collected) .stamp-circle img { display: none; }
-    .collection-item:not(.is-collected) .stamp-circle::before {
-      content: "?\A Find it."; white-space: pre; position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      border-radius: 50%; background: #dfe3e3; color: #7d8b91;
-      font-family: inherit; font-size: 14px; line-height: 1.7; letter-spacing: .04em;
-    }
-    .collection-item:not(.is-collected) .stamp-status { visibility: hidden; }
-    .collection-item.is-collected .stamp-circle img { display: block; opacity: 1 !important; filter: none !important; }
-  </style>
 </head>
 <body class="stamp-page">
 
@@ -42,41 +29,45 @@
       <div class="water-line"></div>
       <p class="lead">
         2つの建物を巡りながら、<br>
-        5つのスタンプを集めよう。
+        5つの夏の思い出を集めよう。
       </p>
     </header>
 
     <section class="progress-section">
-      <p class="progress-label">あつめたスタンプ</p>
+      <p class="progress-label">あつめた思い出</p>
       <p class="progress-number"><span id="stampCount">0</span><small> / 5</small></p>
       <p id="acquireMessage" class="acquire-message" aria-live="polite"></p>
     </section>
 
     <section class="stamp-collection" aria-label="スタンプ取得状況">
       <div class="collection-item" data-stamp="1">
-        <div class="stamp-circle"><img src="images/stamp1.png" alt="スタンプ1"></div>
-        <span class="stamp-status">まだ</span>
+        <div class="stamp-circle"><img src="images/memory1.jpg" alt="縁側のきゅうり"></div>
+        <span class="memory-caption">縁側のきゅうり</span><span class="stamp-status">まだ</span>
       </div>
       <div class="collection-item" data-stamp="2">
-        <div class="stamp-circle"><img src="images/stamp2.png" alt="スタンプ2"></div>
+        <div class="stamp-circle"><img src="images/memory2.jpg" alt="夏の虫とり"></div>
+        <span class="memory-caption">夏の虫とり</span>
         <span class="stamp-status">まだ</span>
       </div>
       <div class="collection-item" data-stamp="3">
-        <div class="stamp-circle"><img src="images/stamp3.png" alt="スタンプ3"></div>
+        <div class="stamp-circle"><img src="images/memory3.jpg" alt="川での魚釣り"></div>
+        <span class="memory-caption">川での魚釣り</span>
         <span class="stamp-status">まだ</span>
       </div>
       <div class="collection-item" data-stamp="4">
-        <div class="stamp-circle"><img src="images/stamp4.png" alt="スタンプ4"></div>
+        <div class="stamp-circle"><img src="images/memory4.jpg" alt="どろんこ遊び"></div>
+        <span class="memory-caption">どろんこ遊び</span>
         <span class="stamp-status">まだ</span>
       </div>
       <div class="collection-item" data-stamp="5">
-        <div class="stamp-circle"><img src="images/stamp5.png" alt="スタンプ5"></div>
+        <div class="stamp-circle"><img src="images/memory5.jpg" alt="木陰のお昼寝"></div>
+        <span class="memory-caption">木陰のお昼寝</span>
         <span class="stamp-status">まだ</span>
       </div>
     </section>
 
     <section class="epilogue-section">
-      <p>5つすべて集めると、<br>物語のつづきが開きます。</p>
+      <p>5つの思い出を集めたら、<br>特別な壁紙と物語のつづきが待っています。</p>
       <a id="epilogueButton" class="epilogue-button is-locked" href="#" aria-disabled="true">
         <span class="lock-mark">○</span>
         <span class="epilogue-label">あと5つ集めよう</span>
@@ -85,10 +76,10 @@
     </section>
 
     <section class="qr-guide">
-      <h2>スタンプの集め方</h2>
+      <h2>思い出の集め方</h2>
       <p>
         会場にある5つのQRコードを読み込むと、<br>
-        その場所のスタンプを取得できます。
+        その場所の思い出の写真を集められます。
       </p>
       <p class="sample-url">
         QR用URL例：<br>
@@ -105,6 +96,6 @@
   </main>
 
 
-  <script src="js/main.js?v=23"></script>
+  <script src="js/main.js?v=24"></script>
 </body>
 </html>

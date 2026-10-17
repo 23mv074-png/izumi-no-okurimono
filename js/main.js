@@ -64,13 +64,13 @@
             Object.assign(placeholder.style, {
               width: '100%',
               height: '100%',
-              borderRadius: '50%',
-              background: '#d9dddc',
+              borderRadius: '3px',
+              background: '#e9e6dd',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#ffffff',
+              color: '#8497a0',
               boxSizing: 'border-box'
             });
             const q = placeholder.querySelector('.find-question');
@@ -104,7 +104,7 @@
 
   const message = document.getElementById('acquireMessage');
   if (message && newlyAcquired) {
-    message.textContent = `スタンプ${newlyAcquired}を取得しました！`;
+    message.textContent = `思い出${newlyAcquired}を見つけました！`;
   }
 
   // stamp.html のエピローグボタン
