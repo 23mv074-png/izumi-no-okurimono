@@ -546,3 +546,6 @@ body.menu-open{overflow:hidden}
 @keyframes izumi-chime-in{from{opacity:0;transform:translate(13px,-8px)}to{opacity:1;transform:translate(0,0)}}
 @keyframes izumi-landscape-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.opening-art::before,.opening-sky,.opening-leaf,.opening-windchime,.opening-title,.opening-landscape img{animation:none}}
+
+/* Align stamp heading with story heading (2026-10-18) */
+.stamp-section { padding-top: 240px; }
