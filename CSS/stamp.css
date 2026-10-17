@@ -307,3 +307,6 @@ body.menu-open { overflow: hidden; }
 .collection-item:not(.is-collected) .stamp-status { color: #9a9d96; }
 .progress-section { margin-bottom: 14px; }
 @media(max-width:360px) { .stamp-page-main { padding-left: 17px; padding-right: 17px; } .stamp-collection { gap: 20px 10px; } .memory-caption { font-size: 11px; } }
+
+/* Memory names stay hidden until discovery; no spoiler captions. */
+.memory-caption { display:none !important; }
