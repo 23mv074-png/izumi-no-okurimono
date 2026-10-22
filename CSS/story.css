@@ -8,3 +8,12 @@
 
 /* Interactive reading: tap-to-hide toolbar and pinch zoom */
 .book-stage{overflow:hidden;touch-action:none}.spread{transform-origin:center center;will-change:transform;touch-action:none}.toolbar{transition:transform .2s ease,opacity .2s ease}.toolbar.is-hidden{transform:translateY(110%);opacity:0;pointer-events:none;position:absolute;bottom:0;left:0;right:0}.reader-hint{position:absolute;z-index:4;left:50%;top:12px;transform:translateX(-50%);max-width:92%;padding:9px 12px;border-radius:12px;background:#fff9e9e8;color:#42555a;text-align:center;font-size:12px;line-height:1.6;pointer-events:none}.reader-hint[hidden]{display:none}.viewer{touch-action:none}
+
+/* Quiet white spreads between cover and story, and before back cover. */
+.spread.blank-spread{background:#fff;box-shadow:0 4px 22px #0003;max-height:100%;aspect-ratio:1.4143;width:auto;max-width:100%}
+.spread.blank-spread .sheet{background:#fff}
+.spread.blank-spread .sheet:first-child{border-right:1px solid #f1f1f1}
+/* Prologue page 44: one enlarged page centered, not aligned to the left. */
+.spread.final-centered .sheet.empty{display:none}
+.spread.final-centered .sheet{width:80%;max-width:80%;flex:0 0 80%}
+@media(orientation:landscape){.spread.final-centered .sheet{width:62%;max-width:62%;flex-basis:62%}}
