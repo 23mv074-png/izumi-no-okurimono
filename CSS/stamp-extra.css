@@ -2,3 +2,7 @@
 /* In-page QR camera scanner */
 .qr-camera-button{display:inline-block;margin:18px auto 6px;padding:13px 20px;border:1px solid #628c92;border-radius:40px;background:#eaf1ee;color:#285f67;font:inherit;cursor:pointer}.qr-camera-note{font-size:12px;line-height:1.8;color:#6b8589}
 .qr-scanner-dialog:not([hidden]){position:fixed;inset:0;z-index:2000;background:#14282bd9;display:flex;align-items:center;justify-content:center;padding:20px}.qr-scanner-panel{width:min(100%,450px);padding:20px;background:#fffdf5;border-radius:18px;text-align:center;color:#335b70}.qr-scanner-panel h2{font-size:17px;font-weight:normal}.qr-scanner-panel video{display:block;width:100%;max-height:55dvh;aspect-ratio:3/4;object-fit:cover;background:#233;border-radius:12px}.qr-scanner-close{display:block;margin-left:auto;padding:8px;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer}#qrScannerStatus{font-size:13px;line-height:1.7}
+
+/* Camera unsupported / permission denied: prominent text-only notice */
+#qrScannerVideo[hidden]{display:none!important}
+#qrScannerStatus.qr-scanner-warning{white-space:pre-line;font-size:clamp(17px,4.5vw,21px);font-weight:700;line-height:1.9;color:#264c56;margin:22px 4px 16px;text-align:center}
