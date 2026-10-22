@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>スタンプラリー｜泉からの贈りもの</title>
-  <link rel="stylesheet" href="CSS/stamp.css">
+  <link rel="stylesheet" href="CSS/stamp.css"><link rel="stylesheet" href="CSS/stamp-extra.css">
 </head>
 <body class="stamp-page">
 
@@ -76,10 +76,7 @@
         会場にある5つのQRコードを読み込むと、<br>
         その場所の思い出の写真を集められます。
       </p>
-      <p class="sample-url">
-        QR用URL例：<br>
-        stamp.html?stamp=1
-      </p>
+      <button type="button" id="openQrScanner" class="qr-camera-button">カメラでQRコードを読み取る →</button><p class="qr-camera-note">カメラの使用を許可してください。対応していない場合はスマホの標準カメラでQRコードを読み取ってね。</p>
     </section>
 
     <nav class="bottom-links">
@@ -118,6 +115,7 @@
       <button id="completionContinue" class="reveal-continue" type="button">ごほうびを受け取る <span aria-hidden="true">→</span></button>
     </div>
   </div>
-  <script src="js/main.js?v=27"></script>
+  <div id="qrScannerDialog" class="qr-scanner-dialog" hidden role="dialog" aria-modal="true" aria-label="QRコードを読み取る"><div class="qr-scanner-panel"><button id="closeQrScanner" class="qr-scanner-close" type="button">× 閉じる</button><h2>思い出のQRを読み取ろう</h2><video id="qrScannerVideo" autoplay muted playsinline></video><p id="qrScannerStatus" role="status">カメラを準備しています…</p></div></div>
+  <script src="js/main.js?v=27"></script><script src="js/qr-scanner.js"></script>
 </body>
 </html>

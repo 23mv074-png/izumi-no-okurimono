@@ -17,3 +17,17 @@
 .spread.final-centered .sheet.empty{display:none}
 .spread.final-centered .sheet{width:80%;max-width:80%;flex:0 0 80%}
 @media(orientation:landscape){.spread.final-centered .sheet{width:62%;max-width:62%;flex-basis:62%}}
+
+/* White spreads: exactly two A5 portrait pages, same proportions as the story. */
+.spread.blank-spread{width:min(100%,calc((100dvh - 74px)*1.4142857));max-width:100%;height:auto;max-height:100%;aspect-ratio:296/210;flex:none;background:transparent;box-shadow:none}
+.spread.blank-spread .sheet{height:100%;width:50%;flex:0 0 50%;aspect-ratio:148/210;background:#fff;box-shadow:0 3px 13px #0002}
+.spread.blank-spread .sheet:first-child{border-right:1px solid #efefef}
+@media(max-height:400px){.spread.blank-spread{width:min(100%,calc((100dvh - 50px)*1.4142857))}}
+/* Navigation, identical to the other pages. */
+.menu-toggle{position:fixed;top:20px;right:max(20px,calc((100vw - 480px)/2 + 20px));z-index:1001;width:46px;height:46px;padding:10px;border:0;border-radius:50%;background:rgba(255,253,245,.85);box-shadow:0 3px 12px #285f871a;cursor:pointer}
+.menu-toggle span{display:block;width:24px;height:1.5px;margin:5px auto;background:#285f87;transition:transform .25s,opacity .25s}
+.menu-toggle.is-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.menu-toggle.is-open span:nth-child(2){opacity:0}.menu-toggle.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.menu-overlay{position:fixed;inset:0;z-index:1000;display:flex;justify-content:center;visibility:hidden;opacity:0;background:#2c454f29;transition:opacity .25s,visibility .25s}.menu-overlay.is-open{visibility:visible;opacity:1}
+.menu-panel{width:min(100%,480px);min-height:100%;padding:105px 42px 40px;background:#fffdf5f0;transform:translateY(-12px);transition:transform .25s}.menu-overlay.is-open .menu-panel{transform:translateY(0)}
+.menu-panel a{display:block;padding:18px 6px;border-bottom:1px solid #285f8733;color:#285f87;text-align:center;text-decoration:none;font-size:17px;letter-spacing:.1em}body.menu-open{overflow:hidden}
+body.reader-active .menu-toggle,body.reader-active .menu-overlay{display:none}
