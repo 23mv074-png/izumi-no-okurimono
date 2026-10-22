@@ -6,3 +6,9 @@
 /* Camera unsupported / permission denied: prominent text-only notice */
 #qrScannerVideo[hidden]{display:none!important}
 #qrScannerStatus.qr-scanner-warning{white-space:pre-line;font-size:clamp(17px,4.5vw,21px);font-weight:700;line-height:1.9;color:#264c56;margin:22px 4px 16px;text-align:center}
+
+/* Always show the QR dialog above site navigation, with a readable fallback */
+#qrScannerDialog:not([hidden]){display:flex!important;position:fixed!important;inset:0!important;z-index:99999!important;align-items:center;justify-content:center;background:rgba(19,34,37,.86)!important;padding:18px!important;box-sizing:border-box}
+#qrScannerDialog .qr-scanner-panel{display:block!important;width:min(100%,460px);max-height:calc(100dvh - 36px);overflow:auto;background:#fffdf5!important;padding:22px 20px 26px!important;box-sizing:border-box;box-shadow:0 12px 45px rgba(0,0,0,.25)}
+#qrScannerDialog #qrScannerStatus.qr-scanner-warning{display:block!important;font-size:clamp(18px,5vw,23px)!important;line-height:1.85!important;font-weight:700!important;white-space:pre-line!important;margin:26px 0 12px!important;color:#244f5a!important}
+#qrScannerDialog #qrScannerVideo[hidden]{display:none!important}
